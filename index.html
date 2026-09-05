@@ -32,7 +32,6 @@
   </header>
 
   <section>
-    <p class="label">Click · Visualize · Analyze</p>
     <div class="steps">
       <div class="step">
         <h2>Click</h2>
@@ -40,17 +39,16 @@
       </div>
       <div class="step">
         <h2>Visualize</h2>
-        <p>Every tap is stamped with the time and drawn. Per hour, per day, per week.</p>
+        <p>Hour, day, week, lifetime.</p>
       </div>
       <div class="step">
         <h2>Analyze</h2>
-        <p>Read the shape of your week. We have no opinion on what blue means.</p>
+        <p>Whatever that means for you.</p>
       </div>
     </div>
   </section>
 
   <section>
-    <p class="label">Anything, anywhere, locally — just like a notebook</p>
     <div class="pillars">
       <div>
         <h2>Anything</h2>
@@ -64,24 +62,6 @@
         <h2>Locally</h2>
         <p>Nothing leaves your device. There is no server for it to leave to.</p>
       </div>
-      <div>
-        <h2>Just like a notebook</h2>
-        <p>Lose the phone, lose the notes. There is an Export button. Use it.</p>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <p class="label">What it looks like</p>
-    <div class="shots">
-      <figure class="shot">
-        <img src="shot-pad.png" width="780" height="1320" alt="The tap screen: three full-width buttons in blue, yellow and red, each with a small count in its top corner.">
-        <figcaption>Tap. The badge counts today.</figcaption>
-      </figure>
-      <figure class="shot">
-        <img src="shot-timeline.png" width="780" height="1320" alt="The timeline screen: three lines showing clicks per day for blue, yellow and red, above a strip marking every individual tap.">
-        <figcaption>Tap a day for its numbers.</figcaption>
-      </figure>
     </div>
   </section>
 
@@ -97,21 +77,41 @@
         <span><b>Habits you are cutting down</b>No streaks, no badges, nothing calling you a quitter.</span>
       </div>
       <div class="use">
-        <span class="pic" aria-hidden="true">👶</span>
-        <span><b>A baby’s day</b>You will not remember Tuesday. The dots will.</span>
-      </div>
-      <div class="use">
-        <span class="pic" aria-hidden="true">💬</span>
-        <span><b>Meeting bingo</b>Blue: “circle back.” Yellow: “synergy.” Red: “take this offline.”</span>
-      </div>
-      <div class="use">
         <span class="pic" aria-hidden="true">🩺</span>
-        <span><b>Symptoms</b>Better than “a lot, I think? Mostly evenings?”</span>
+        <span><b>Pain, 1 to 3</b>Blue mild, yellow bad, red worse — all day, in order. Beats
+          telling a doctor “a lot, I think? Mostly evenings?”</span>
+      </div>
+      <div class="use">
+        <span class="pic" aria-hidden="true">🐦</span>
+        <span><b>Birds, trains, passing cars</b>Field notes for people who enjoy counting
+          things at other things.</span>
       </div>
       <div class="use">
         <span class="pic" aria-hidden="true">🙋</span>
         <span><b>Interruptions</b>Count for a week. Then show the chart to whoever caused them.</span>
       </div>
+    </div>
+  </section>
+
+  <section>
+    <p class="label">What it looks like — try the tabs</p>
+    <!-- Two radios and :checked selectors, so the page still ships zero JavaScript.
+         The tabs mirror the app's own, so the control teaches the app. -->
+    <div class="switch">
+      <input class="sr-only" type="radio" name="shot" id="pick-tap" checked>
+      <input class="sr-only" type="radio" name="shot" id="pick-timeline">
+      <div class="switch-tabs">
+        <label for="pick-tap"><span aria-hidden="true">⊙</span> Tap</label>
+        <label for="pick-timeline"><span aria-hidden="true">⋯</span> Timeline</label>
+      </div>
+      <figure class="pane pane-tap">
+        <img src="shot-pad.png" width="780" height="1320" alt="The tap screen: three full-width buttons in blue, yellow and red, each with a small count in its top corner.">
+        <figcaption>Tap a colour. The badge counts today.</figcaption>
+      </figure>
+      <figure class="pane pane-timeline">
+        <img src="shot-timeline.png" width="780" height="1320" alt="The timeline screen: three lines showing clicks per day for blue, yellow and red, above a strip marking every individual tap.">
+        <figcaption>Tap any day for its numbers.</figcaption>
+      </figure>
     </div>
   </section>
 

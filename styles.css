@@ -84,16 +84,41 @@ p  { margin: 0; color: var(--ink-2); }
 .pillars { display: grid; gap: 26px; }
 @media (min-width: 620px) { .pillars { grid-template-columns: 1fr 1fr; gap: 26px 34px; } }
 
-/* ── Screenshots ──────────────────────────────────────────── */
-.shots { display: grid; gap: 26px; }
-@media (min-width: 560px) { .shots { grid-template-columns: 1fr 1fr; } }
-.shot img {
-  display: block; width: 100%; height: auto;
-  border: 1px solid var(--hairline); border-radius: 16px;
-  box-shadow: var(--shadow);
-}
-.shot figcaption { margin-top: 10px; font-size: .8125rem; color: var(--ink-muted); }
+/* ── Screenshot switcher ──────────────────────────────────────
+   Two radios plus :checked selectors, so the tabs work with no JavaScript at
+   all — and they mirror the app's own tab bar, so the control teaches the app. */
 figure { margin: 0; }
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+.switch { position: relative; }
+.switch-tabs { display: flex; gap: 8px; justify-content: center; margin-bottom: 20px; }
+.switch-tabs label {
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 9px 18px; border-radius: 999px; cursor: pointer; user-select: none;
+  font-size: .875rem; font-weight: 550; color: var(--ink-2);
+  border: 1px solid var(--hairline);
+}
+.switch-tabs label:hover { background: var(--wash); color: var(--ink); }
+#pick-tap:checked ~ .switch-tabs label[for="pick-tap"],
+#pick-timeline:checked ~ .switch-tabs label[for="pick-timeline"] {
+  color: var(--ink); font-weight: 650; background: var(--wash); border-color: transparent;
+}
+#pick-tap:focus-visible ~ .switch-tabs label[for="pick-tap"],
+#pick-timeline:focus-visible ~ .switch-tabs label[for="pick-timeline"] {
+  outline: 2px solid var(--blue); outline-offset: 2px;
+}
+.pane { display: none; }
+#pick-tap:checked ~ .pane-tap,
+#pick-timeline:checked ~ .pane-timeline { display: block; }
+.pane img {
+  display: block; width: 100%; max-width: 330px; height: auto; margin: 0 auto;
+  border: 1px solid var(--hairline); border-radius: 16px; box-shadow: var(--shadow);
+}
+.pane figcaption {
+  margin-top: 12px; text-align: center; font-size: .8125rem; color: var(--ink-muted);
+}
 
 /* ── Use cases ────────────────────────────────────────────── */
 .uses { display: grid; gap: 2px; }
