@@ -18,5 +18,6 @@ frontend:
       - 'styles.css'
       - 'go/**'
       - '*.png'
+    # tools/ is deliberately absent: read-logs.py is for you, not for visitors
   cache:
     paths: []

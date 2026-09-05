@@ -40,7 +40,18 @@ sent onward. An ad blocker cannot suppress it, because there is nothing to
 block.
 
 Read them in the Amplify console: **Hosting → Monitoring → Access logs**,
-pick a date range, download the CSV, and count rows by path.
+pick a date range, **Download**, then:
+
+```sh
+python3 tools/read-logs.py access-logs.csv          # per-day visits, clicks, rate
+python3 tools/read-logs.py access-logs.csv --hours  # plus clicks by hour
+```
+
+It counts `/` as a visit and `/go` as a click, skips assets, bots and link
+previewers, keeps `304`s (a revalidated revisit is still a visit), and finds
+the columns by shape rather than by fixed position, since Amplify has changed
+that CSV's layout before. If the layout ever changes past recognition it prints
+the header row rather than guessing.
 
 **The cache headers in `customHttp.yml` are what make this work, so do not
 "tidy" them.** A page served from the *browser's* own cache never reaches the
