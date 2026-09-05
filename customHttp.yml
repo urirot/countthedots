@@ -1,0 +1,23 @@
+# Response headers.
+#
+# The cache rules are load-bearing, not housekeeping: the visit and
+# click-through counts come from Amplify's access logs, and a request served
+# from the *browser's* own cache never reaches the server, so it is never
+# logged. HTML therefore revalidates, and /go is never stored at all.
+customHeaders:
+  - pattern: '/go/**'
+    headers:
+      - key: 'Cache-Control'
+        value: 'no-store, must-revalidate'
+  - pattern: '**/*.html'
+    headers:
+      - key: 'Cache-Control'
+        value: 'no-cache, must-revalidate'
+      - key: 'X-Content-Type-Options'
+        value: 'nosniff'
+      - key: 'Referrer-Policy'
+        value: 'strict-origin-when-cross-origin'
+  - pattern: '**/*.@(png|css)'
+    headers:
+      - key: 'Cache-Control'
+        value: 'public, max-age=604800'

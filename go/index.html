@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Opening Count the Dots…</title>
+<style>
+  body {
+    margin: 0; min-height: 100vh;
+    display: grid; place-items: center; text-align: center; padding: 24px;
+    background: #f9f9f7; color: #52514e;
+    font: 16px/1.6 system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  a { color: #2a78d6; }
+  .dots { display: flex; gap: 10px; justify-content: center; margin-bottom: 18px; }
+  .dots i { width: 16px; height: 16px; border-radius: 50%; }
+  .dots i:nth-child(1) { background: #2a78d6; }
+  .dots i:nth-child(2) { background: #d4a000; }
+  .dots i:nth-child(3) { background: #d4342a; }
+  .warn { color: #d4342a; font-weight: 600; }
+  code { background: rgba(11,11,11,.06); padding: 2px 6px; border-radius: 5px; font-size: .9em; }
+  @media (prefers-color-scheme: dark) {
+    body { background: #0d0d0d; color: #c3c2b7; }
+    a { color: #3987e5; } .warn { color: #ef5a4d; }
+    code { background: rgba(255,255,255,.1); }
+  }
+</style>
+</head>
+<body>
+  <div>
+    <div class="dots" aria-hidden="true"><i></i><i></i><i></i></div>
+    <p id="msg">Opening Count the Dots…</p>
+    <p id="link"></p>
+  </div>
+
+<script>
+/* ══════════════════════════════════════════════════════════════════════════
+   ⚠  THE ONE LINE TO EDIT IN THIS REPO. Put the app's real URL here.
+
+   Why this page exists: it is how the landing page counts click-throughs
+   with no tracking script at all. The buttons on the landing page point at
+   /go on this same domain, so a click becomes an ordinary request in
+   Amplify's access logs — hits on "/" are visits, hits on "/go" are people
+   who went on to the app. customHttp.yml marks this page no-store, because a
+   page served from the browser's own cache never reaches the server and so
+   never gets counted.
+   ══════════════════════════════════════════════════════════════════════════ */
+var APP_URL = 'https://REPLACE-WITH-APP-URL.amplifyapp.com/';
+
+(function () {
+  var link = document.getElementById('link');
+  if (APP_URL.indexOf('REPLACE-WITH-APP-URL') !== -1) {
+    // Fail loudly rather than bouncing everyone to a domain that isn't there
+    document.getElementById('msg').innerHTML =
+      '<span class="warn">This link isn\'t configured yet.</span><br>' +
+      'Set <code>APP_URL</code> in <code>go/index.html</code>.';
+    return;
+  }
+  var a = document.createElement('a');
+  a.href = APP_URL;
+  a.textContent = 'Continue →';
+  link.appendChild(a);
+  location.replace(APP_URL);      // replace(), so Back returns to the landing page
+})();
+</script>
+<noscript>
+  <!-- No second copy of the URL here on purpose: the app is a JavaScript app,
+       so a visitor with JS off could not use it even if we sent them along. -->
+  <p>Count the Dots needs JavaScript.</p>
+</noscript>
+</body>
+</html>

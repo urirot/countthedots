@@ -1,0 +1,17 @@
+# Amplify Hosting build spec.
+#
+# Nothing to build — this is static HTML, CSS and two PNGs. The phases are
+# declared explicitly so Amplify does not auto-detect a framework and try to
+# run an install step that would fail on a repo with no package.json.
+version: 1
+frontend:
+  phases:
+    build:
+      commands:
+        - echo "static site, nothing to build"
+  artifacts:
+    baseDirectory: /
+    files:
+      - '**/*'
+  cache:
+    paths: []
