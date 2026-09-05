@@ -4,11 +4,11 @@
 # click-through counts come from Amplify's access logs, and a request served
 # from the *browser's* own cache never reaches the server, so it is never
 # logged. HTML therefore revalidates, and /go is never stored at all.
+#
+# ORDER MATTERS. /go/index.html matches both '**/*.html' and '/go/**', and
+# Amplify lets a later rule win — so the specific /go rule must come last or
+# the generic HTML one silently overrides it.
 customHeaders:
-  - pattern: '/go/**'
-    headers:
-      - key: 'Cache-Control'
-        value: 'no-store, must-revalidate'
   - pattern: '**/*.html'
     headers:
       - key: 'Cache-Control'
@@ -21,3 +21,7 @@ customHeaders:
     headers:
       - key: 'Cache-Control'
         value: 'public, max-age=604800'
+  - pattern: '/go/**'
+    headers:
+      - key: 'Cache-Control'
+        value: 'no-store, must-revalidate'
