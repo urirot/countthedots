@@ -65,6 +65,29 @@ Two honest caveats about the numbers:
 * **The ratio is the useful part.** `/go` ÷ `/` is your click-through rate, and
   that ratio stays meaningful even though neither number is exact.
 
+### The /usage page
+
+`countthedots.click/usage` shows total visits, clicks to the app, the rate between
+them, and a per-day chart. It is **generated, not live** — a browser cannot read
+Amplify's access logs, so the page is built from the CSV and committed:
+
+```sh
+python3 tools/build-usage.py ~/Downloads/access-logs.csv
+git add usage && git commit -m "usage: refresh" && git push
+```
+
+The page states the date its data runs through, so it can't be mistaken for
+real-time. Both tools read through `tools/logs.py`, so "visit" and "click" cannot
+come to mean different things in the terminal and on the page.
+
+Chart colours are `--c-visits` / `--c-clicks` in `styles.css`, not the UI palette.
+The dark-mode gold is deliberately different from `--yellow`: chart marks have to
+sit inside OKLCH lightness 0.48–0.67 against the dark surface and the UI yellow is
+0.82. Both pairs were run through a palette validator — blue/gold is also the pair
+that survives every kind of colour blindness. Gold falls under 3:1 on the light
+surface, which is why the page carries a table of the same figures rather than
+relying on the bars alone.
+
 If you later want referrers, uniques and trends on a dashboard, add a cookieless
 tool (GoatCounter is free for personal use; Plausible and Umami are the paid
 equivalents). Keep it on this page only — the app's whole pitch is that nothing

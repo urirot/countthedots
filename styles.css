@@ -13,6 +13,8 @@
   --yellow:    #d4a000;
   --red:       #d4342a;
   --shadow:    0 1px 2px rgba(11,11,11,0.05), 0 8px 24px rgba(11,11,11,0.06);
+  --c-visits: #2a78d6;
+  --c-clicks: #d4a000;
 }
 @media (prefers-color-scheme: dark) {
   :root {
@@ -21,6 +23,8 @@
     --ink-muted: #898781; --hairline: rgba(255,255,255,0.10); --wash: rgba(255,255,255,0.06);
     --blue: #3987e5; --yellow: #f0bc2e; --red: #ef5a4d;
     --shadow: 0 1px 2px rgba(0,0,0,0.5), 0 8px 24px rgba(0,0,0,0.35);
+    --c-visits: #3987e5;
+    --c-clicks: #b58726;
   }
 }
 
@@ -139,3 +143,60 @@ footer {
 }
 
 @media (prefers-reduced-motion: reduce) { .cta { transition: none; } }
+
+/* ── Usage page ───────────────────────────────────────────────
+   Chart palette is --c-visits / --c-clicks above. The dark gold is deliberately
+   not --yellow: chart marks must sit inside OKLCH L 0.48–0.67 against the dark
+   surface and the UI yellow is L 0.82. Both pairs were run through the palette
+   validator; blue/gold is also the pair that survives every kind of colour
+   blindness. Gold falls below 3:1 on the light surface, which is why the page
+   carries a table view of the same figures. */
+.u-hero { padding: 56px 0 8px; text-align: left; }
+.u-h1 { font-size: clamp(2rem, 8vw, 2.75rem); }
+.u-lede { margin-left: 0; }
+
+.u-tiles { display: grid; gap: 18px; grid-template-columns: repeat(2, 1fr); }
+@media (min-width: 620px) { .u-tiles { grid-template-columns: repeat(4, 1fr); } }
+.u-tile b {
+  display: block; font-size: clamp(1.75rem, 7vw, 2.25rem); font-weight: 680;
+  letter-spacing: -0.03em; color: var(--ink); font-variant-numeric: tabular-nums;
+}
+.u-tile span { font-size: .8125rem; color: var(--ink-muted); }
+
+.u-legend { display: flex; flex-wrap: wrap; gap: 6px 18px; margin: 0 0 14px; }
+.u-legend span {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-size: .8125rem; color: var(--ink-2);
+}
+.u-key { width: 11px; height: 11px; border-radius: 3px; display: inline-block; flex: none; }
+.u-visits { background: var(--c-visits); }
+.u-clicks { background: var(--c-clicks); }
+
+.u-chart { display: block; width: 100%; height: auto; }
+.u-chart text { font: 11px system-ui, -apple-system, sans-serif; fill: var(--ink-muted); }
+.u-chart .u-y, .u-chart .u-peak { font-variant-numeric: tabular-nums; }
+.u-chart .u-peak { font-size: 10px; font-weight: 650; fill: var(--ink-2); }
+.u-chart .u-grid { stroke: var(--hairline); stroke-width: 1; }
+.u-chart .u-base { stroke: var(--ink-muted); stroke-width: 1; opacity: .5; }
+.u-chart .u-bar { stroke: none; }
+.u-chart .u-bar.u-visits { fill: var(--c-visits); }
+.u-chart .u-bar.u-clicks { fill: var(--c-clicks); }
+
+.u-table { margin-top: 26px; }
+.u-table > summary {
+  cursor: pointer; list-style: none; padding: 10px 2px;
+  font-size: .8125rem; font-weight: 550; color: var(--ink-2);
+}
+.u-table > summary::-webkit-details-marker { display: none; }
+.u-table > summary::before { content: "\203A  "; }
+.u-table[open] > summary::before { content: "\2304  "; }
+.u-table table { width: 100%; border-collapse: collapse; font-size: .8125rem; }
+.u-table th, .u-table td {
+  text-align: right; padding: 7px 8px; border-bottom: 1px solid var(--hairline);
+  font-variant-numeric: tabular-nums; color: var(--ink-2);
+}
+.u-table th:first-child, .u-table td:first-child { text-align: left; }
+.u-table th {
+  font-size: .6875rem; text-transform: uppercase; letter-spacing: .06em;
+  color: var(--ink-muted); font-weight: 640;
+}

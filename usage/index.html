@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Usage — Count the Dots</title>
+<meta name="description" content="Visits and click-throughs for countthedots.click.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#f9f9f7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0d0d0d" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="../icon-192.png" sizes="192x192" type="image/png">
+<link rel="stylesheet" href="../styles.css?v=3">
+</head>
+<body>
+<div class="wrap">
+  <header class="hero u-hero">
+    <div class="dots dots-sm" aria-hidden="true"><i></i><i></i><i></i></div>
+    <h1 class="u-h1">Usage</h1>
+    <p class="lede u-lede">How <a href="/">countthedots.click</a> is doing.
+      Counted from the server's own logs — no tracking script, no cookies.</p>
+  </header>
+  <section>
+    <p>No data yet. Download the access log from Amplify
+      (<em>Hosting → Monitoring → Access logs</em>) and run:</p>
+    <p><code>python3 tools/build-usage.py access-logs.csv</code></p>
+  </section>
+
+  <footer>
+    <p class="footnote">Data through nothing yet. This page is generated from the access
+      log by hand, so it is a snapshot, not a live dashboard.
+      <strong>Requests are not people</strong> — one person reloading counts twice,
+      so the rate is the number worth trusting.</p>
+  </footer>
+</div>
+</body>
+</html>
