@@ -135,9 +135,6 @@ figure { margin: 0; }
 footer {
   padding: 40px 0 64px; border-top: 1px solid var(--hairline);
   font-size: .8125rem; color: var(--ink-muted);
-  display: flex; flex-wrap: wrap; gap: 8px 18px; align-items: baseline;
 }
-footer a { color: var(--ink-2); }
-footer .sep { flex: 1 1 auto; }
 
 @media (prefers-reduced-motion: reduce) { .cta { transition: none; } }
