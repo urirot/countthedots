@@ -14,7 +14,8 @@
 <meta property="og:description" content="A counter for anything you can be bothered to count. Three buttons, one timeline, and no cloud whatsoever.">
 <meta property="og:image" content="og.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="styles.css?v=2">
+<link rel="canonical" href="https://countthedots.click/">
+<link rel="stylesheet" href="styles.css?v=3">
 </head>
 <body>
 
@@ -67,30 +68,34 @@
 
   <section>
     <p class="label">What people count</p>
-    <div class="uses">
+    <dl class="uses">
       <div class="use">
         <span class="pic" aria-hidden="true">☕</span>
-        <span><b>Coffee</b>Blue: morning. Yellow: the one you called decaf. Red: 11pm.</span>
+        <dt>Coffee</dt>
+        <dd>Blue: morning. Yellow: the one you called decaf. Red: 11pm.</dd>
       </div>
       <div class="use">
         <span class="pic" aria-hidden="true">📉</span>
-        <span><b>Habits you are cutting down</b>No streaks, no badges, nothing calling you a quitter.</span>
+        <dt>Habits you are cutting down</dt>
+        <dd>No streaks, no badges, nothing calling you a quitter.</dd>
       </div>
       <div class="use">
         <span class="pic" aria-hidden="true">🩺</span>
-        <span><b>Pain, 1 to 3</b>Blue mild, yellow bad, red worse — all day, in order. Beats
-          telling a doctor “a lot, I think? Mostly evenings?”</span>
+        <dt>Pain, 1 to 3</dt>
+        <dd>Blue mild, yellow bad, red worse — all day, in order. Beats telling a doctor
+          “a lot, I think? Mostly evenings?”</dd>
       </div>
       <div class="use">
         <span class="pic" aria-hidden="true">🐦</span>
-        <span><b>Birds, trains, passing cars</b>Field notes for people who enjoy counting
-          things at other things.</span>
+        <dt>Birds, trains, passing cars</dt>
+        <dd>Field notes for people who enjoy counting things at other things.</dd>
       </div>
       <div class="use">
         <span class="pic" aria-hidden="true">🙋</span>
-        <span><b>Interruptions</b>Count for a week. Then show the chart to whoever caused them.</span>
+        <dt>Interruptions</dt>
+        <dd>Count for a week. Then show the chart to whoever caused them.</dd>
       </div>
-    </div>
+    </dl>
   </section>
 
   <section>
@@ -105,11 +110,11 @@
         <label for="pick-timeline"><span aria-hidden="true">⋯</span> Timeline</label>
       </div>
       <figure class="pane pane-tap">
-        <img src="shot-pad-3.png" width="780" height="1320" alt="The tap screen: three large dots stacked vertically in blue, yellow and red, each with today's count in plain numbers beside it.">
-        <figcaption>Tap a colour. The badge counts today.</figcaption>
+        <img src="shot-pad-4.png" width="780" height="1320" alt="The tap screen: three large dots stacked vertically in blue, yellow and red, each with today's count in plain numbers beside it.">
+        <figcaption>Tap a colour. The number counts today.</figcaption>
       </figure>
       <figure class="pane pane-timeline">
-        <img src="shot-timeline.png" width="780" height="1320" alt="The timeline screen: three lines showing clicks per day for blue, yellow and red, above a strip marking every individual tap.">
+        <img src="shot-timeline-2.png" width="780" height="1320" alt="The timeline screen: three lines showing clicks per day for blue, yellow and red, above a strip marking every individual tap.">
         <figcaption>Tap any day for its numbers.</figcaption>
       </figure>
     </div>
@@ -122,6 +127,7 @@
   </section>
 
   <footer>
+    <div class="dots dots-sm" aria-hidden="true"><i></i><i></i><i></i></div>
     <span>countthedots.click</span>
   </footer>
 

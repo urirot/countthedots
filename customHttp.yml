@@ -17,6 +17,9 @@ customHeaders:
         value: 'nosniff'
       - key: 'Referrer-Policy'
         value: 'strict-origin-when-cross-origin'
+  # NOTE: www.countthedots.click still answers 200 with identical content. The
+  # canonical tag in index.html handles search engines; a 301 from www to the
+  # apex has to be added in Amplify -> Rewrites and redirects.
   # CSS revalidates with the HTML. It was cached for a week, which meant a
   # returning phone ran new markup against an old stylesheet — the layout broke
   # and the CSS-only tabs stopped switching. A 304 on 5KB costs nothing; that
