@@ -17,11 +17,9 @@ frontend:
       - 'index.html'
       - 'styles.css'
       - 'go/**'
-      - 'usage/**'
       - '*.png'
       - 'robots.txt'
       - 'sitemap.xml'
       - 'llms.txt'
-    # tools/ is deliberately absent: read-logs.py is for you, not for visitors
   cache:
     paths: []
