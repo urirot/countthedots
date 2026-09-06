@@ -4,7 +4,8 @@ The landing page for **Count the Dots** — the three-button counter.
 The app itself lives in a separate, private repo.
 
 Static HTML, CSS and four PNGs. No build step, no dependencies, no JavaScript
-on the landing page itself.
+on the landing page itself — the screenshot switcher runs on two radio inputs
+and `:checked` selectors rather than a script.
 
 ```
 index.html        the page
