@@ -189,13 +189,12 @@ def build(path):
       <span><i class="u-key u-clicks" aria-hidden="true"></i>Clicks to the app</span>
     </div>
     {chart(series)}
-    <details class="u-table">
-      <summary>The same numbers as a table</summary>
+    <div class="u-table">
       <table>
         <thead><tr><th>Day</th><th>Visits</th><th>Clicks</th><th>Rate</th></tr></thead>
         <tbody>{rows}</tbody>
       </table>
-    </details>
+    </div>
   </section>
 '''
     return page(body, hi)

@@ -207,14 +207,10 @@ footer {
 .u-chart .u-bar.u-visits { fill: var(--c-visits); }
 .u-chart .u-bar.u-clicks { fill: var(--c-clicks); }
 
-.u-table { margin-top: 26px; }
-.u-table > summary {
-  cursor: pointer; list-style: none; padding: 10px 2px;
-  font-size: .8125rem; font-weight: 550; color: var(--ink-2);
-}
-.u-table > summary::-webkit-details-marker { display: none; }
-.u-table > summary::before { content: "\203A  "; }
-.u-table[open] > summary::before { content: "\2304  "; }
+/* Always visible, not behind a disclosure: gold measures 2.32:1 against the
+   light surface, and the palette validator's contrast warning is only
+   discharged by a text alternative the reader can actually reach. */
+.u-table { margin-top: 30px; overflow-x: auto; }
 .u-table table { width: 100%; border-collapse: collapse; font-size: .8125rem; }
 .u-table th, .u-table td {
   text-align: right; padding: 7px 8px; border-bottom: 1px solid var(--hairline);
