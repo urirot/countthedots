@@ -30,17 +30,37 @@
     </p>
     <a class="cta" href="/go">Just give me the buttons →</a>
     <p class="fineprint">Free · No account · Works offline</p>
+
+    <!-- Two radios and :checked selectors, so the page still ships zero
+         JavaScript. The tabs mirror the app's own, so the control teaches
+         the app before anyone has opened it. -->
+    <div class="switch">
+      <input class="sr-only" type="radio" name="shot" id="pick-tap" checked>
+      <input class="sr-only" type="radio" name="shot" id="pick-timeline">
+      <div class="switch-tabs">
+        <label for="pick-tap"><span aria-hidden="true">⊙</span> Tap</label>
+        <label for="pick-timeline"><span aria-hidden="true">⋯</span> Timeline</label>
+      </div>
+      <figure class="pane pane-tap">
+        <img src="shot-pad-4.png" width="780" height="1320" alt="The tap screen: three large dots stacked vertically in blue, yellow and red, each with today's count in plain numbers beside it.">
+        <figcaption>Tap a colour. The number counts today.</figcaption>
+      </figure>
+      <figure class="pane pane-timeline">
+        <img src="shot-timeline-2.png" width="780" height="1320" alt="The timeline screen: three lines showing clicks per day for blue, yellow and red, above a strip marking every individual tap.">
+        <figcaption>Tap any day for its numbers.</figcaption>
+      </figure>
+    </div>
   </header>
 
   <section>
     <div class="steps">
       <div class="step">
         <h2>Click</h2>
-        <p>Blue, yellow, red. Tap one. There is no step two.</p>
+        <p>Blue, yellow, red.</p>
       </div>
       <div class="step">
         <h2>Visualize</h2>
-        <p>Hour, day, week, lifetime.</p>
+        <p>A graph, instead of counting.</p>
       </div>
       <div class="step">
         <h2>Analyze</h2>
@@ -50,20 +70,8 @@
   </section>
 
   <section>
-    <div class="pillars">
-      <div>
-        <h2>Anything</h2>
-        <p>Nobody asks what the colours are for. Coffees, cigarettes, push-ups, birds.</p>
-      </div>
-      <div>
-        <h2>Anywhere</h2>
-        <p>Add it to your home screen. Works with no signal.</p>
-      </div>
-      <div>
-        <h2>Locally</h2>
-        <p>Nothing leaves your device. There is no server for it to leave to.</p>
-      </div>
-    </div>
+    <p class="statement">Add it to your home screen, use it to count anything, no judgment.
+      Everything stays on your device.</p>
   </section>
 
   <section>
@@ -72,7 +80,7 @@
       <div class="use">
         <span class="pic" aria-hidden="true">☕</span>
         <dt>Coffee</dt>
-        <dd>Blue: morning. Yellow: the one you called decaf. Red: 11pm.</dd>
+        <dd>Blue: morning. Yellow: the one you called decaf. Red: after bedtime.</dd>
       </div>
       <div class="use">
         <span class="pic" aria-hidden="true">📉</span>
@@ -96,28 +104,6 @@
         <dd>Count for a week. Then show the chart to whoever caused them.</dd>
       </div>
     </dl>
-  </section>
-
-  <section>
-    <p class="label">What it looks like — try the tabs</p>
-    <!-- Two radios and :checked selectors, so the page still ships zero JavaScript.
-         The tabs mirror the app's own, so the control teaches the app. -->
-    <div class="switch">
-      <input class="sr-only" type="radio" name="shot" id="pick-tap" checked>
-      <input class="sr-only" type="radio" name="shot" id="pick-timeline">
-      <div class="switch-tabs">
-        <label for="pick-tap"><span aria-hidden="true">⊙</span> Tap</label>
-        <label for="pick-timeline"><span aria-hidden="true">⋯</span> Timeline</label>
-      </div>
-      <figure class="pane pane-tap">
-        <img src="shot-pad-4.png" width="780" height="1320" alt="The tap screen: three large dots stacked vertically in blue, yellow and red, each with today's count in plain numbers beside it.">
-        <figcaption>Tap a colour. The number counts today.</figcaption>
-      </figure>
-      <figure class="pane pane-timeline">
-        <img src="shot-timeline-2.png" width="780" height="1320" alt="The timeline screen: three lines showing clicks per day for blue, yellow and red, above a strip marking every individual tap.">
-        <figcaption>Tap any day for its numbers.</figcaption>
-      </figure>
-    </div>
   </section>
 
   <section>
