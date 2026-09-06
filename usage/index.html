@@ -20,13 +20,30 @@
       Counted from the server's own logs — no tracking script, no cookies.</p>
   </header>
   <section>
-    <p>No data yet. Download the access log from Amplify
-      (<em>Hosting → Monitoring → Access logs</em>) and run:</p>
-    <p><code>python3 tools/build-usage.py access-logs.csv</code></p>
+    <div class="u-tiles"><div class="u-tile"><b>25</b><span>total visits</span></div><div class="u-tile"><b>3</b><span>clicks to the app</span></div><div class="u-tile"><b>12%</b><span>click-through rate</span></div><div class="u-tile"><b>1</b><span>days counted</span></div></div>
+  </section>
+
+  <section>
+    <p class="label">Visits and clicks per day</p>
+    <p class="sr-only" id="chart-desc">Grouped bars, one pair per day: visits and
+      clicks to the app, on a shared count axis. The same figures are in the table
+      below.</p>
+    <div class="u-legend">
+      <span><i class="u-key u-visits" aria-hidden="true"></i>Visits</span>
+      <span><i class="u-key u-clicks" aria-hidden="true"></i>Clicks to the app</span>
+    </div>
+    <svg class="u-chart" viewBox="0 0 520 230" role="img" aria-labelledby="chart-desc"><line class="u-base" x1="34" x2="510.0" y1="204.0" y2="204.0"/><text class="u-y" x="26" y="207.5" text-anchor="end">0</text><line class="u-grid" x1="34" x2="510.0" y1="143.3" y2="143.3"/><text class="u-y" x="26" y="146.8" text-anchor="end">10</text><line class="u-grid" x1="34" x2="510.0" y1="82.7" y2="82.7"/><text class="u-y" x="26" y="86.2" text-anchor="end">20</text><line class="u-grid" x1="34" x2="510.0" y1="22.0" y2="22.0"/><text class="u-y" x="26" y="25.5" text-anchor="end">30</text><path class="u-bar u-visits" d="M257.0 204.0L257.0 56.3Q257.0 52.3 261.0 52.3L267.0 52.3Q271.0 52.3 271.0 56.3L271.0 204.0Z"><title>2026-09-06 — 25 visits</title></path><path class="u-bar u-clicks" d="M273.0 204.0L273.0 189.8Q273.0 185.8 277.0 185.8L283.0 185.8Q287.0 185.8 287.0 189.8L287.0 204.0Z"><title>2026-09-06 — 3 clicks</title></path><text class="u-x" x="510.0" y="222" text-anchor="end">09/06</text><text class="u-peak" x="264.0" y="45.3" text-anchor="middle">25</text></svg>
+    <details class="u-table">
+      <summary>The same numbers as a table</summary>
+      <table>
+        <thead><tr><th>Day</th><th>Visits</th><th>Clicks</th><th>Rate</th></tr></thead>
+        <tbody><tr><td>2026-09-06</td><td>25</td><td>3</td><td>12%</td></tr></tbody>
+      </table>
+    </details>
   </section>
 
   <footer>
-    <p class="footnote">Data through nothing yet. This page is generated from the access
+    <p class="footnote">Data through 2026-09-06. This page is generated from the access
       log by hand, so it is a snapshot, not a live dashboard.
       <strong>Requests are not people</strong> — one person reloading counts twice,
       so the rate is the number worth trusting.</p>

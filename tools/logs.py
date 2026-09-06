@@ -61,13 +61,21 @@ class LayoutError(Exception):
 
 def read(path):
     """-> dict(days={'YYYY-MM-DD': Counter}, hours=Counter, totals=Counter, bots=int)"""
-    with open(path, newline='', encoding='utf-8', errors='replace') as fh:
+    # utf-8-sig: CloudFront exports carry a BOM that would otherwise glue itself to
+    # the first header name and break an exact match on it
+    with open(path, newline='', encoding='utf-8-sig', errors='replace') as fh:
         rows = list(csv.reader(fh))
     if not rows:
         raise LayoutError([])
 
     head = rows[0]
-    i_time = pick(head, 'timestamp', 'time', 'date', 'requesttime')
+    # Two shapes in the wild: one timestamp column, or a CloudFront-style export
+    # with 'date' and 'time' split apart. A lone '06:01:15' parses as nothing, so
+    # the halves have to be rejoined before anything else looks at them.
+    i_ts = pick(head, 'timestamp', 'requesttime', 'datetime')
+    i_date = pick(head, 'date')
+    i_clock = pick(head, 'time')
+    i_time = i_ts if i_ts is not None else (i_clock if i_clock is not None else i_date)
     i_path = pick(head, 'uri', 'path', 'request', 'url', 'cs-uri-stem')
     i_stat = pick(head, 'status', 'sc-status', 'statuscode')
     i_ua = pick(head, 'useragent', 'user_agent', 'user-agent', 'agent')
@@ -89,7 +97,11 @@ def read(path):
         if i_ua is not None and len(r) > i_ua and BOT.search(r[i_ua]):
             bots += 1
             continue
-        t = parse_time(r[i_time])
+        if i_ts is None and i_date is not None and i_clock is not None and i_date != i_clock:
+            stamp = f'{r[i_date].strip()}T{r[i_clock].strip()}'
+        else:
+            stamp = r[i_time]
+        t = parse_time(stamp)
         if not t:
             continue
         days[t.strftime('%Y-%m-%d')][kind] += 1
