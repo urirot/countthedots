@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Count the Dots — a counter for anything you can be bothered to count</title>
-<meta name="description" content="Three buttons. One timeline. No cloud. Tap blue, yellow or red to stamp the time, then see how many of each you got per hour or per day. Everything stays on your device.">
+<meta name="description" content="A free tally counter for anything. Tap blue, yellow or red to log the moment, then see the counts per hour or per day. Works offline, no account, and your data never leaves your device.">
 <meta name="theme-color" content="#f9f9f7" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0d0d0d" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="icon-192.png" sizes="192x192" type="image/png">
@@ -12,10 +12,38 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="Count the Dots">
 <meta property="og:description" content="A counter for anything you can be bothered to count. Three buttons, one timeline, and no cloud whatsoever.">
-<meta property="og:image" content="og.png">
+<meta property="og:url" content="https://countthedots.click/">
+<meta property="og:image" content="https://countthedots.click/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Three dots in blue, yellow and red above the words Count the dots.">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://countthedots.click/og.png">
 <link rel="canonical" href="https://countthedots.click/">
 <link rel="stylesheet" href="styles.css?v=3">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Count the Dots",
+  "url": "https://countthedots.click/",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any modern web browser; installable to the home screen on iOS and Android",
+  "description": "A free tally counter for anything. Three buttons stamp the current time when tapped, and a chart shows how many of each you got per hour, day or week. Works offline, needs no account, and stores every click in the browser on your own device.",
+  "isAccessibleForFree": true,
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "featureList": [
+    "Tally counter with three colours",
+    "Timestamps every tap",
+    "Counts per hour, day, week or all time",
+    "Works offline as an installable PWA",
+    "No account and no server",
+    "Data stored locally in the browser",
+    "Export and import as JSON"
+  ],
+  "screenshot": "https://countthedots.click/og.png"
+}
+</script>
 </head>
 <body>
 
@@ -28,7 +56,7 @@
       A counter for anything you can be bothered to count.
       Three buttons, one chart, no cloud.
     </p>
-    <a class="cta" href="/go">Just give me the buttons →</a>
+    <a class="cta" href="/go" rel="nofollow">Just give me the buttons →</a>
     <p class="fineprint">Free · No account · Works offline</p>
 
     <!-- Two radios and :checked selectors, so the page still ships zero
@@ -113,7 +141,7 @@
   <section>
     <p>It is a three-button counter. It will not sync, remind you, or send a year in review.
        If that is all you needed, it is right here.</p>
-    <p style="margin-top:22px"><a class="cta" href="/go">I have things to count →</a></p>
+    <p style="margin-top:22px"><a class="cta" href="/go" rel="nofollow">I have things to count →</a></p>
   </section>
 
   <footer>

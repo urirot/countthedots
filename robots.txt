@@ -1,0 +1,12 @@
+# countthedots.click
+User-agent: *
+Allow: /
+
+# /go is the click-through counter, not a page. Keeping crawlers out of it also
+# keeps bot traffic out of the click numbers on /usage.
+Disallow: /go
+
+# Traffic stats — public if you have the link, but not something to index.
+Disallow: /usage
+
+Sitemap: https://countthedots.click/sitemap.xml

@@ -1,0 +1,37 @@
+# Count the Dots
+
+> A free tally counter for anything you can be bothered to count. Three buttons —
+> blue, yellow and red — stamp the current time when tapped, and a chart shows how
+> many of each you got per hour, day, week or over the whole log.
+
+Count the Dots is a web app that installs to a phone's home screen as a PWA and
+works with no network connection. It has no accounts, no server and no sync: every
+click is stored in the browser's own `localStorage` on the device that recorded it,
+and nothing is ever transmitted anywhere.
+
+## What it is for
+
+People use it as a tally counter, habit tracker, symptom log or field-notes
+counter — counting coffees, cigarettes, reps, pain levels from 1 to 3, birds,
+passing cars, or interruptions during a working day. The app never asks what the
+colours mean.
+
+## How it works
+
+- Tap blue, yellow or red. Each tap records a timestamp.
+- The timeline plots how many clicks each colour got per period — plain integer
+  counts, not a running total and not a smoothed rate.
+- An event rail under the chart marks every individual tap at its exact time.
+- Ranges: today, 7 days, 30 days, or all time.
+- Export and import as JSON; import replaces whole days rather than merging.
+
+## Privacy
+
+There is no server component. No account is required, no analytics run inside the
+app, and no click data leaves the device. Clearing the browser's site data deletes
+the log, which is why the app ships an export button.
+
+## Links
+
+- App: https://app.countthedots.click
+- Home: https://countthedots.click
