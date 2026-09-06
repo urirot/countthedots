@@ -88,12 +88,33 @@ p  { margin: 0; color: var(--ink-2); }
 .step:nth-child(2) h2::before { background: var(--yellow); }
 .step:nth-child(3) h2::before { background: var(--red); }
 
-/* One sentence carrying what four headings used to */
-.statement {
-  font-size: clamp(1.3rem, 4.6vw, 1.7rem); font-weight: 500;
-  line-height: 1.35; letter-spacing: -0.02em;
-  color: var(--ink); max-width: 19em; text-wrap: balance;
+/* The page's one loud moment. Everything else is quiet, so this can afford a
+   real size jump — the two imperatives carry it and the three "no"s drop to a
+   quieter register, which is where the privacy claim earns more than it would
+   as another heading. */
+.statement { padding: 66px 0; gap: 20px; }
+.statement-lead {
+  font-size: clamp(1.7rem, 7vw, 2.5rem); font-weight: 600;
+  line-height: 1.12; letter-spacing: -0.035em;
+  color: var(--ink); text-wrap: balance;
 }
+/* Three claims, three dots — the marks carry the palette so the text does not
+   have to. Gold as type measures ~2.3:1 on this ground and would be unreadable;
+   as an 11px mark beside ink it is fine, which is how the app's own legend
+   works. */
+.claims {
+  list-style: none; margin: 0; padding: 0;
+  display: flex; flex-direction: column; gap: 11px;
+}
+@media (min-width: 640px) { .claims { flex-direction: row; flex-wrap: wrap; gap: 10px 30px; } }
+.claims li {
+  display: flex; align-items: center; gap: 11px;
+  font-size: 1.0625rem; color: var(--ink-2);
+}
+.claims i { width: 11px; height: 11px; border-radius: 50%; flex: none; }
+.claims li:nth-child(1) i { background: var(--blue); }
+.claims li:nth-child(2) i { background: var(--yellow); }
+.claims li:nth-child(3) i { background: var(--red); }
 
 /* ── Screenshot switcher ──────────────────────────────────────
    Two radios plus :checked selectors, so the tabs work with no JavaScript at
