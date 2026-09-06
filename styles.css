@@ -92,7 +92,7 @@ p  { margin: 0; color: var(--ink-2); }
    real size jump — the two imperatives carry it and the three "no"s drop to a
    quieter register, which is where the privacy claim earns more than it would
    as another heading. */
-.statement { padding: 66px 0; gap: 20px; }
+.statement { display: flex; flex-direction: column; gap: 28px; padding: 66px 0; }
 .statement-lead {
   font-size: clamp(1.7rem, 7vw, 2.5rem); font-weight: 600;
   line-height: 1.12; letter-spacing: -0.035em;
