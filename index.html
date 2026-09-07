@@ -59,7 +59,7 @@
     {
       sessionSampleRate: 1,
       endpoint: "https://dataplane.rum.eu-west-1.amazonaws.com",
-      telemetries: ["performance","errors","http"],
+      telemetries: [],
       allowCookies: false,
       enableXRay: false,
       // false because this app monitor has no Cognito identity pool. With
@@ -70,6 +70,33 @@
       signing: false
     }
   );
+</script>
+
+<!-- Button clicks, recorded as a page view for "/go".
+     /go replaces the document immediately, so the RUM client there never
+     finishes loading and its page view is lost. Recording it here instead works
+     because the client is already warm by the time anyone reads far enough to
+     click. Both numbers then sit in the same Page views table: "/" is a visit,
+     "/go" is a click-through.
+     Modifier and middle clicks are left alone so opening in a new tab still
+     behaves, and if RUM is blocked the link simply navigates as normal. -->
+<script>
+  (function () {
+    var GO = '/go';
+    document.addEventListener('click', function (ev) {
+      var a = ev.target.closest && ev.target.closest('a[href="' + GO + '"]');
+      if (!a) return;
+      if (ev.defaultPrevented || ev.button !== 0 || ev.metaKey || ev.ctrlKey || ev.shiftKey || ev.altKey) return;
+      if (typeof window.cwr !== 'function') return;
+      ev.preventDefault();
+      try {
+        window.cwr('recordPageView', GO);
+        window.cwr('dispatch');
+      } catch (e) { /* never let telemetry break the link */ }
+      // a beat for the beacon to leave before the document is torn down
+      setTimeout(function () { window.location.href = GO; }, 150);
+    }, false);
+  })();
 </script>
 </head>
 <body>
