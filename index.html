@@ -44,6 +44,28 @@
   "screenshot": "https://countthedots.click/og.png"
 }
 </script>
+
+<!-- CloudWatch RUM — landing page only. The app at app.countthedots.click stays
+     script-free on purpose: "nothing leaves your device" is a claim about the
+     counter, and it stays literally true. allowCookies is false, so this sets
+     nothing in the browser and needs no consent banner. -->
+<script>
+  (function(n,i,v,r,s,c,x,z){x=window.AwsRumClient={q:[],n:n,i:i,v:v,r:r,c:c};window[n]=function(c,p){x.q.push({c:c,p:p});};z=document.createElement('script');z.async=true;z.src=s;document.head.insertBefore(z,document.head.getElementsByTagName('script')[0]);})(
+    'cwr',
+    '6ebaad85-b10d-4b18-9185-2c3567d5f42a',
+    '1.0.0',
+    'eu-west-1',
+    'https://client.rum.us-east-1.amazonaws.com/1.19.0/cwr.js',
+    {
+      sessionSampleRate: 1,
+      endpoint: "https://dataplane.rum.eu-west-1.amazonaws.com",
+      telemetries: ["performance","errors","http"],
+      allowCookies: false,
+      enableXRay: false,
+      signing: true
+    }
+  );
+</script>
 </head>
 <body>
 
@@ -88,7 +110,7 @@
       </div>
       <div class="step">
         <h2>Visualize</h2>
-        <p>No need to count.</p>
+        <p>When you don’t want to count.</p>
       </div>
       <div class="step">
         <h2>Analyze</h2>

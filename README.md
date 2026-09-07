@@ -3,9 +3,15 @@
 The landing page for **Count the Dots** — the three-button counter.
 The app itself lives in a separate, private repo.
 
-Static HTML, CSS and four PNGs. No build step, no dependencies, no JavaScript
-on the landing page itself — the screenshot switcher runs on two radio inputs
-and `:checked` selectors rather than a script.
+Static HTML, CSS and four PNGs. No build step and no dependencies. The only
+JavaScript is the CloudWatch RUM tag — the screenshot switcher runs on two radio
+inputs and `:checked` selectors rather than a script, and `/go` is a plain
+redirect.
+
+RUM is on this page only. The app itself stays script-free: "nothing leaves your
+device" is a claim about the counter, and it stays literally true. Cookies are
+disabled in the RUM config, so nothing is stored in the browser and no consent
+banner is owed.
 
 ```
 index.html        the page
