@@ -62,7 +62,12 @@
       telemetries: ["performance","errors","http"],
       allowCookies: false,
       enableXRay: false,
-      signing: true
+      // false because this app monitor has no Cognito identity pool. With
+      // signing:true the client cannot obtain credentials and silently sends
+      // nothing at all — verified from the live page: the CDN client loaded 50
+      // times and made zero dataplane calls. Unsigned requests need a
+      // resource-based policy on the app monitor allowing rum:PutRumEvents.
+      signing: false
     }
   );
 </script>
